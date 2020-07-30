@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team Generator</title>
+    <link rel="stylesheet" type="text/css" href="apStyle.css">
+    <script src="RCOS.js"></script>
+    <script>
+        function rd(){
+            //25
+            let st = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian","BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //9+13 = 22
+            let rand = random(st);
+            console.log(rand)
+            document.getElementById("resultado").innerHTML = rand;
+        }
+    </script>
+</head>
+<body onload="rd()">
+    
+    <button class="returnButton" onclick="window.location.href = 'menu.html';">««</button>
+    <button class="returnButton" onclick="window.location.href = 'WESGMenu.html';">«</button>
+
+    <h1 class="SubTitle">Your Result Is:</h1>
+    <div class="container">
+        <p id="resultado" class="resultado"></p>
+        
+
+    </div>
+    <div class="spacer"></div>
+    <div class="buttonPos">
+        <button onclick="rd()" class="button">Generete Again</button>
+    </div>
+
+</body>
+</html>

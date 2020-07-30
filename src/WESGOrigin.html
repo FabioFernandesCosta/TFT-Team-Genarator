@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TFT Tam Generator</title>
+    <link rel="stylesheet" type="text/css" href="apStyle.css">
+    <script src="WESGFunction.js"></script>
+
+    <script>
+
+
+        function start() {
+            document.getElementById("resultado").innerHTML = "-----------------------------------------------------";
+            document.getElementById("match").innerHTML = "---------------";
+        }
+
+
+
+        function generate() {
+            let orA = document.getElementById("oL").value;
+            let clA = document.getElementById("cL").value;
+            let ori = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian"];  //0-9
+            let cla = ["BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //0-13
+            let base = document.getElementById("option").value;
+            let tipo = 1;
+            //console.log(base, tipo)
+            let rand = generator(ori, cla, base, tipo, orA, clA);
+            let tMatch = "Error"
+
+            if (rand[1] === 0) {
+                tMatch = "Without Match"
+
+            } else if (rand[1] === 1) {
+                tMatch = "Match Found"
+
+            } else if (rand[1] >= 2) {
+                tMatch = "Super Match Found"
+            }
+            document.getElementById("resultado").innerHTML = rand[0];
+            document.getElementById("match").innerHTML = tMatch;
+
+        }
+    </script>
+</head>
+
+<body onload="start()">
+    <button class="returnButton" onclick="window.location.href = 'menu.html';">««</button>
+    <button class="returnButton" onclick="window.location.href = 'WESGMenu.html';">«</button>
+    <h1 class="SubTitle">Select the Origin</h1>
+
+
+    <div class="buttonPos">
+
+        <select class="selector" id="option">
+            <option value="0">Astro</option>
+            <option value="1">Battlecast</option>
+            <option value="2">Celestial</option>
+            <option value="3">Chrono</option>
+            <option value="4">Cybernetic</option>
+            <option value="5">Dark Star</option>
+            <option value="6">Mech Pilot</option>
+            <option value="7">Rebel</option>
+            <option value="8">Space Pirate</option>
+            <option value="9">Star Guardian</option>
+            
+        </select>
+
+
+
+
+        <button class="button" onclick="generate()">Generate</button>
+    </div>
+
+    <div class="buttonPos">
+
+        <select class="selector" id="oL">
+            <option value="0">Random Quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+
+        <select class="selector" id="cL">
+            <option value="0">Random Quantity</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+
+    </div>
+    <div class="spacer">
+
+    </div>
+    <div class="container">
+        <p id="resultado" class="resultado"></p>
+        <p id="match" class="match"></p>
+
+    </div>
+</body>
+
+</html>

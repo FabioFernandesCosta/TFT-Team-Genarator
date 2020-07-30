@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TFT Tam Generator</title>
+    <link rel="stylesheet" type="text/css" href="apStyle.css">
+    <script src="apFunctions.js"></script>
+    <script src="save.js"></script>
+
+    <script>
+
+        function start() {
+            document.getElementById("resultado").innerHTML = "-----------------------------------------------------";
+            document.getElementById("match").innerHTML = "---------------";
+        }
+
+
+        function generate() {
+            let orA = document.getElementById("oL").value;
+            let clA = document.getElementById("cL").value;
+            let ori = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian"];  //0-9
+            let cla = ["BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //0-13
+            let rand = fullRandom(ori, cla, orA, clA);
+            let tMatch = "Error"
+
+            if (rand[1] === 0) {
+                tMatch = "Without Match"
+
+            } else if (rand[1] === 1) {
+                tMatch = "Match Found"
+
+            } else if (rand[1] >= 2) {
+                tMatch = "Super Match Found"
+            }
+            document.getElementById("resultado").innerHTML = rand[0];
+            document.getElementById("match").innerHTML = tMatch; 
+
+        }
+
+
+        function save() {
+
+            let build = document.getElementById("resultado").innerHTML
+            let suc = saveBuild(build);
+            console.log(suc)
+        }
+
+    </script>
+
+</head>
+
+
+<body onload="start()">
+
+    <button class="returnButton" onclick="window.location.href = 'menu.html';">««</button>
+    <button class="returnButton" onclick="window.location.href = 'Sgerador.html';">«</button>
+    <h1 class="SubTitle">FullRandom Generator</h1>
+    <div class="buttonPos">
+        <button class="button" onclick="generate()">Generate</button>
+        <button class="button" onclick="save()">Record Build</button>
+    </div>
+    <div class="buttonPos">
+
+        <select class="selector" id="oL">
+            <option value="0">Random Amount of Origins</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+
+        <select class="selector" id="cL">
+            <option value="0">Random Amount of Classes</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+
+        </select>
+
+    </div>
+    <div class="container">
+        <p id="resultado" class="resultado"></p>
+        <p id="match" class="match"></p>
+
+    </div>
+
+
+</body>
+
+</html>
