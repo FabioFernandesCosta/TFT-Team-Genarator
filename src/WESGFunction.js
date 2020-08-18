@@ -84,8 +84,8 @@ function generator(ori, cla, base, tipo, oL, cL) {
     for (i = 0; i < res.length; i++) {
 
         if (i != res.length - 1) {
-            finalRes = finalRes + "[" + res[i] + "]      ";
         } else {
+            finalRes = finalRes + "[" + res[i] + "] ";
 
             finalRes = finalRes + "[" + res[i] + "]";
         }

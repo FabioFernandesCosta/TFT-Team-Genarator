@@ -36,37 +36,27 @@ function fullRandom(ori, cla, oL, cL) {
 
     //conecta os valores numericos obtidos aleatoriamente com as respectivas classe/origens atribuindo o 
     //nome das mesmas a variavel res
-    if (sOrigem.length >= 1) {
-        res[i] = origin[sOrigem[0]];
-        i++;
+    let rOrigem = [];
+    let rClasse = [];
+
+    for(let i = 0; i<sOrigem.length; i++){
+        rOrigem[i] = origin[sOrigem[i]];
     }
-    if (sOrigem.length >= 2) {
-        res[i] = origin[sOrigem[1]];
-        i++;
+    for(let i = 0; i<sClasses.length; i++){
+        rClasse[i] = cla[sClasses[i]];
     }
-    if (sOrigem.length >= 3) {
-        res[i] = origin[sOrigem[2]];;
-        i++;
-    }
-    if (sClasses.length >= 1) {
-        res[i] = classes[sClasses[0]];
-        i++;
-    }
-    if (sClasses.length >= 2) {
-        res[i] = classes[sClasses[1]];
-        i++;
-    }
-    if (sClasses.length >= 3) {
-        res[i] = classes[sClasses[2]];
-        i++;
-    }
-    //console.log(res);
+    console.log(rClasse)
+
+    res = rOrigem.concat(rClasse);
+
+
+    
 
     let finalRes = "";
     for (i = 0; i < res.length; i++) {
 
         if (i != res.length - 1) {
-            finalRes = finalRes + "[" + res[i] + "]      ";
+            finalRes = finalRes + "[" + res[i] + "] ";
         } else {
 
             finalRes = finalRes + "[" + res[i] + "]";
@@ -75,12 +65,10 @@ function fullRandom(ori, cla, oL, cL) {
     }
 
 
-
     //match
 
-
     let match = [
-        //origem lateral, classe vertical
+        //linha(x) representa 1 origem, classe coluna(y)
       // 0 1 2 3 4 5 6 7 8 9 x 1 2 3
         [0,0,1,0,0,0,0,1,0,0,1,0,0,1], //0
         [0,1,1,0,1,0,0,1,0,1,0,1,0,0], //1
@@ -97,31 +85,19 @@ function fullRandom(ori, cla, oL, cL) {
 
     let resMatch = 0;
 
-    let sOTM = sOrigem.length;
-    let sCTM = sClasses.length;
 
-    let sOCon = 0;
-    let sCCon = 0;
+    for(let i = 0; i < sOrigem.length; i++){
+        
+        for(let j = 0; j < sClasses.length; j++){
+            
 
-    for (i = 0; i < sOTM; i++) {
-
-        sOCon = sClasses[i];
-
-
-        for (i2 = 0; i2 < sCTM; i2++) {
-
-            sCCon = sOrigem[i2]
-
-
-            if (match[sCCon][sOCon] == 1) {
-                resMatch = resMatch + 1;
+            if(match[sOrigem[i]][sClasses[j]] !=0){
+                resMatch++;
             }
-
-
         }
     }
-    //console.log(sOCon, sCCon)
-    //console.log(finalRes, resMatch);
+
+    
 
     let finalArray = [finalRes, resMatch]
 

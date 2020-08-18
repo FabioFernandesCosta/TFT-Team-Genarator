@@ -8,7 +8,7 @@
     <title>TFT Tam Generator</title>
     <link rel="stylesheet" type="text/css" href="apStyle.css">
     <script src="apFunctions.js"></script>
-    <script src="save.js"></script>
+    <script src="toJs.js"></script>
 
     <script>
 
@@ -21,7 +21,9 @@
         function generate() {
             let orA = document.getElementById("oL").value;
             let clA = document.getElementById("cL").value;
+            //          0           1               2           3       4               5               6        7          8               9                   
             let ori = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian"];  //0-9
+            //              0               1       2               3           4               5                6         7            8           9         10        11          12            13
             let cla = ["BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //0-13
             let rand = fullRandom(ori, cla, orA, clA);
             let tMatch = "Error"
@@ -41,12 +43,7 @@
         }
 
 
-        function save() {
-
-            let build = document.getElementById("resultado").innerHTML
-            let suc = saveBuild(build);
-            console.log(suc)
-        }
+        
 
     </script>
 
@@ -59,7 +56,7 @@
     <button class="returnButton" onclick="window.location.href = 'Sgerador.html';">«</button>
     <h1 class="SubTitle">FullRandom Generator</h1>
     <div class="buttonPos">
-        <button class="button" onclick="generate()">Generate</button>
+        <button class="button" onclick="generate()" id="generate">Generate</button>
         <button class="button" onclick="save()">Record Build</button>
     </div>
     <div class="buttonPos">
