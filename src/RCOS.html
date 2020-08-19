@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Team Generator</title>
     <link rel="stylesheet" type="text/css" href="apStyle.css">
-    <script src="RCOS.js"></script>
+    <script src="apFunctions.js"></script>
     <script>
         function rd(){
             //25
             let st = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian","BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //9+13 = 22
-            let rand = random(st);
+            let rand = oneRandom(st);
             console.log(rand)
             document.getElementById("resultado").innerHTML = rand;
         }
