@@ -12,8 +12,8 @@
     <script>
 
         function start() {
-            document.getElementById("resultado").innerHTML = "-----------------------------------------------------";
-            document.getElementById("match").innerHTML = "---------------";
+            document.getElementById("resultado").innerHTML = "Generate your";
+            document.getElementById("match").innerHTML = "comp!";
         }
 
 
@@ -25,7 +25,7 @@
             let cla = ["BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //0-13
             let base = document.getElementById("option").value;
             let tipo = 2;
-            //console.log(base, tipo)
+            
             let rand = generator(ori, cla, base, tipo, orA, clA);
             let tMatch = "Error"
 
@@ -42,6 +42,7 @@
             document.getElementById("match").innerHTML = tMatch;
 
         }
+
     </script>
 </head>
 
