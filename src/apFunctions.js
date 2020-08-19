@@ -45,7 +45,7 @@ function fullRandom(ori, cla, oL, cL) {
     for(let i = 0; i<sClasses.length; i++){
         rClasse[i] = cla[sClasses[i]];
     }
-    console.log(rClasse)
+    //console.log(rClasse)
 
     res = rOrigem.concat(rClasse);
 

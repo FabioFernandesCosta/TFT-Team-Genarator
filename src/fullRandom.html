@@ -7,14 +7,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TFT Tam Generator</title>
     <link rel="stylesheet" type="text/css" href="apStyle.css">
-    <script src="apFunctions.js"></script>
-    <script src="toJs.js"></script>
+    <script type="text/javascript" src="apFunctions.js"></script>
+    <script type="text/javascript" src="toJs.js"></script>
 
     <script>
 
         function start() {
-            document.getElementById("resultado").innerHTML = "-----------------------------------------------------";
-            document.getElementById("match").innerHTML = "---------------";
+            document.getElementById("resultado").innerHTML = "Generate your";
+            document.getElementById("match").innerHTML = "comp!";
         }
 
 
@@ -42,11 +42,7 @@
 
         }
 
-
-        
-
     </script>
-
 </head>
 
 
@@ -56,7 +52,7 @@
     <button class="returnButton" onclick="window.location.href = 'Sgerador.html';">«</button>
     <h1 class="SubTitle">FullRandom Generator</h1>
     <div class="buttonPos">
-        <button class="button" onclick="generate()" id="generate">Generate</button>
+        <button class="button" onclick="generate()">Generate</button>
         <button class="button" onclick="save()">Record Build</button>
     </div>
     <div class="buttonPos">
@@ -84,7 +80,5 @@
 
     </div>
 
-
 </body>
-
 </html>
