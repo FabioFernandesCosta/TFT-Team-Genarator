@@ -36,11 +36,14 @@
 
             } else if (rand[1] >= 2) {
                 tMatch = "Super Match Found"
+            }else if (rand[1] == -1){
+                tMatch = "work..."
             }
             document.getElementById("resultado").innerHTML = rand[0];
             document.getElementById("match").innerHTML = tMatch; 
 
         }
+        
 
     </script>
 </head>
@@ -58,7 +61,8 @@
     <div class="buttonPos">
 
         <select class="selector" id="oL">
-            <option value="0">Random Amount of Origins</option>
+            <option value="-1">Random Amount of Origins</option>
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -66,7 +70,8 @@
         </select>
 
         <select class="selector" id="cL">
-            <option value="0">Random Amount of Classes</option>
+            <option value="-1">Random Amount of Classes</option>
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

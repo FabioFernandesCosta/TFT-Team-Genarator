@@ -6,9 +6,13 @@ function fullRandom(ori, cla, oL, cL) {
     //Variaveis que definem aleatoriamente quais sinergias serao usadas.
     let sOrigem = [Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0]
     let sClasses = [Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0]
+    
+    //Variaveis que definem aleatoriamente quantas sinergias vao ser usadas. (Maximo 6)
+    if(oL == 0 && cL == 0){
+        return ["that's not how things",-1]
+    }
 
-    //Variaveis que definem aleatoriamente quantas sinergias vao ser usadas. (Maximo 4)
-    if (oL == 0) {
+    if (oL == -1) {
         sOrigem.length = Math.floor(Math.random() * (2 - 0)) + 1;
 
     } else if (oL > 0) {
@@ -16,7 +20,7 @@ function fullRandom(ori, cla, oL, cL) {
     }
 
 
-    if (cL == 0) {
+    if (cL == -1) {
         sClasses.length = Math.floor(Math.random() * (2 - 0)) + 1;
 
     } else if (cL > 0) [
@@ -64,7 +68,7 @@ function fullRandom(ori, cla, oL, cL) {
 
     }
 
-
+    
     //match
 
     let match = [
@@ -85,27 +89,16 @@ function fullRandom(ori, cla, oL, cL) {
 
     let resMatch = 0;
 
-
     for(let i = 0; i < sOrigem.length; i++){
-        
         for(let j = 0; j < sClasses.length; j++){
-            
-
             if(match[sOrigem[i]][sClasses[j]] !=0){
                 resMatch++;
             }
         }
     }
 
-    
-
     let finalArray = [finalRes, resMatch]
-
-
-
     return finalArray;
-
-
 }
 
 

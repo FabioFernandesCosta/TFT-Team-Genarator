@@ -6,25 +6,19 @@ function generator(ori, cla, base, tipo, oL, cL) {
     let classes = cla;
 
 
-
-
-
-
-
-
     //Variaveis que definem aleatoriamente quais sinergias serao usadas.
     let sOrigem = [Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0]
     let sClasses = [Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0]
 
-    if (tipo == 1) {
+    if (tipo === 1) {
         sOrigem[0] = base;
-
-    } else if (tipo == 2) {
+    } else if (tipo === 2) {
         sClasses[0] = base;
-
     }
 
-    //Variaveis que definem aleatoriamente quantas sinergias vao ser usadas. (Maximo 4)
+    //Variaveis que definem aleatoriamente quantas sinergias vao ser usadas. (Maximo 6)
+    
+
     if (oL == 0) {
         sOrigem.length = Math.floor(Math.random() * (2 - 0)) + 1;
 
@@ -36,12 +30,11 @@ function generator(ori, cla, base, tipo, oL, cL) {
     if (cL == 0) {
         sClasses.length = Math.floor(Math.random() * (2 - 0)) + 1;
 
-    } else if (cL > 0) [
+    } else if (cL > 0) {
+
         sClasses.length = cL
-    ]
-
-
-
+    }
+    
     ////console.log(origin[sOrigem[0]], origin[sOrigem[1]], classes[sClasses[0]], classes[sClasses[1]]);
 
     //Ordena Origem e Classe por ordem numerica < p/ >
@@ -54,46 +47,36 @@ function generator(ori, cla, base, tipo, oL, cL) {
 
     //conecta os valores numericos obtidos aleatoriamente com as respectivas classe/origens atribuindo o 
     //nome das mesmas a variavel res
-    if (sOrigem.length >= 1) {
-        res[i] = origin[sOrigem[0]];
-        i++;
-    }
-    if (sOrigem.length >= 2) {
-        res[i] = origin[sOrigem[1]];
-        i++;
-    }
-    if (sOrigem.length >= 3) {
-        res[i] = origin[sOrigem[2]];;
-        i++;
-    }
-    if (sClasses.length >= 1) {
-        res[i] = classes[sClasses[0]];
-        i++;
-    }
-    if (sClasses.length >= 2) {
-        res[i] = classes[sClasses[1]];
-        i++;
-    }
-    if (sClasses.length >= 3) {
-        res[i] = classes[sClasses[2]];
-        i++;
-    }
-    //console.log(res);
+    //conecta os valores numericos obtidos aleatoriamente com as respectivas classe/origens atribuindo o 
+    //nome das mesmas a variavel res
+    let rOrigem = [];
+    let rClasse = [];
 
+    for(let i = 0; i<sOrigem.length; i++){
+        rOrigem[i] = origin[sOrigem[i]];
+    }
+    for(let i = 0; i<sClasses.length; i++){
+        rClasse[i] = cla[sClasses[i]];
+    }
+    //console.log(rClasse)
+
+    res = rOrigem.concat(rClasse);
+    //console.log(res);
+    
     let finalRes = "";
     for (i = 0; i < res.length; i++) {
 
         if (i != res.length - 1) {
-        } else {
             finalRes = finalRes + "[" + res[i] + "] ";
+        } else {
 
             finalRes = finalRes + "[" + res[i] + "]";
         }
 
     }
 
-
-
+    
+    console.log(finalRes)
 
     //match
 
@@ -115,53 +98,18 @@ function generator(ori, cla, base, tipo, oL, cL) {
     ];
 
 
+    let resMatch = 0;
 
-    let sOTM = sOrigem.length;
-    let sCTM = sClasses.length;
-
-    let sOCon = 0;
-    let sCCon = 0;
-
-    for (i = 0; i < sOTM; i++) {
-
-        sOCon = sClasses[i];
-
-
-        for (i2 = 0; i2 < sCTM; i2++) {
-
-            sCCon = sOrigem[i2]
-
-
-            if (match[sCCon][sOCon] == 1) {
-                resMatch = resMatch + 1;
+    for(let i = 0; i < sOrigem.length; i++){
+        for(let j = 0; j < sClasses.length; j++){
+            if(match[sOrigem[i]][sClasses[j]] !=0){
+                resMatch++;
             }
-
-
         }
     }
-
-
-
-
-
-
-
-
-
-    //console.log(sOCon, sCCon)
-    //console.log(finalRes, resMatch);
-
+ 
     let finalArray = [finalRes, resMatch]
-
-
-
-
-
-
     return finalArray;
-
-
-
 }
 
 
