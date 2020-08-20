@@ -1,15 +1,26 @@
-function fullRandom(ori, cla, oL, cL) {
-    //Variaveis que definem as sinergias por nomes.
-    let origin = ori;
-    let classes = cla;
+function fullRandom(ori, cla, base, tipo, oL, cL) {
+
     //console.log(oL, cL)
     //Variaveis que definem aleatoriamente quais sinergias serao usadas.
-    let sOrigem = [Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0]
-    let sClasses = [Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0]
-    
+    let sOrigem = [Math.floor(Math.random() * (ori.length - 0)) + 0, Math.floor(Math.random() * (ori.length - 0)) + 0, Math.floor(Math.random() * (ori.length - 0)) + 0]
+    let sClasses = [Math.floor(Math.random() * (cla.length - 0)) + 0, Math.floor(Math.random() * (cla.length - 0)) + 0, Math.floor(Math.random() * (cla.length - 0)) + 0]
+
     //Variaveis que definem aleatoriamente quantas sinergias vao ser usadas. (Maximo 6)
-    if(oL == 0 && cL == 0){
-        return ["that's not how things",-1]
+    //console.log(oL, cL);
+
+    console.log(ori, cla, base, tipo, oL, cL);
+
+    if (base != -1 && tipo != -1) {
+        if (tipo == 1) {
+            sOrigem[0] = base;
+        }
+        if (tipo == 2) {
+            sClasses[0] = base;
+        }
+    }
+
+    if (oL == 0 && cL == 0) {
+        return ["that's not how things", -1]
     }
 
     if (oL == -1) {
@@ -28,8 +39,6 @@ function fullRandom(ori, cla, oL, cL) {
     ]
 
 
-    ////console.log(origin[sOrigem[0]], origin[sOrigem[1]], classes[sClasses[0]], classes[sClasses[1]]);
-
     //Ordena Origem e Classe por ordem crescente < p/ >
     sOrigem.sort();
     sClasses.sort();
@@ -43,18 +52,14 @@ function fullRandom(ori, cla, oL, cL) {
     let rOrigem = [];
     let rClasse = [];
 
-    for(let i = 0; i<sOrigem.length; i++){
-        rOrigem[i] = origin[sOrigem[i]];
+    for (let i = 0; i < sOrigem.length; i++) {
+        rOrigem[i] = ori[sOrigem[i]];
     }
-    for(let i = 0; i<sClasses.length; i++){
+    for (let i = 0; i < sClasses.length; i++) {
         rClasse[i] = cla[sClasses[i]];
     }
-    //console.log(rClasse)
 
     res = rOrigem.concat(rClasse);
-
-
-    
 
     let finalRes = "";
     for (i = 0; i < res.length; i++) {
@@ -73,25 +78,25 @@ function fullRandom(ori, cla, oL, cL) {
 
     let match = [
         //linha(x) representa 1 origem, classe coluna(y)
-      // 0 1 2 3 4 5 6 7 8 9 x 1 2 3
-        [0,0,1,0,0,0,0,1,0,0,1,0,0,1], //0
-        [0,1,1,0,1,0,0,1,0,1,0,1,0,0], //1
-        [1,0,0,0,0,1,0,1,0,1,1,0,0,0], //2
-        [1,1,1,0,0,1,0,0,0,0,1,1,0,1], //3
-        [1,1,1,0,1,1,0,0,0,0,1,0,0,1], //4
-        [0,0,0,0,1,0,0,1,0,1,1,1,0,1], //5
-        [0,0,0,1,1,0,0,0,0,0,0,1,0,0], //6
-        [1,1,1,1,1,0,0,0,0,0,0,0,1,0], //7
-        [0,1,0,1,0,1,1,0,0,0,0,0,0,1], //8
-        [0,0,0,0,0,0,0,1,1,1,0,1,0,1]  //9
-         
+        // 0 1 2 3 4 5 6 7 8 9 x 1 2 3
+        [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1], //0
+        [0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0], //1
+        [1, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 0, 0, 0], //2
+        [1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1], //3
+        [1, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1], //4
+        [0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1], //5
+        [0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0], //6
+        [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0], //7
+        [0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1], //8
+        [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1]  //9
+
     ];
 
     let resMatch = 0;
 
-    for(let i = 0; i < sOrigem.length; i++){
-        for(let j = 0; j < sClasses.length; j++){
-            if(match[sOrigem[i]][sClasses[j]] !=0){
+    for (let i = 0; i < sOrigem.length; i++) {
+        for (let j = 0; j < sClasses.length; j++) {
+            if (match[sOrigem[i]][sClasses[j]] != 0) {
                 resMatch++;
             }
         }
@@ -101,121 +106,8 @@ function fullRandom(ori, cla, oL, cL) {
     return finalArray;
 }
 
-function generator(ori, cla, base, tipo, oL, cL) {
-
-    //Variaveis que definem as sinergias por nomes.
-    let resMatch = 0;
-    let origin = ori;
-    let classes = cla;
-
-
-    //Variaveis que definem aleatoriamente quais sinergias serao usadas.
-    let sOrigem = [Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0, Math.floor(Math.random() * (origin.length - 0)) + 0]
-    let sClasses = [Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0, Math.floor(Math.random() * (classes.length - 0)) + 0]
-
-    if (tipo === 1) {
-        sOrigem[0] = base;
-    } else if (tipo === 2) {
-        sClasses[0] = base;
-    }
-
-    //Variaveis que definem aleatoriamente quantas sinergias vao ser usadas. (Maximo 6)
-    
-    if (oL == 0) {
-        sOrigem.length = Math.floor(Math.random() * (2 - 0)) + 1;
-
-    } else if (oL > 0) {
-        sOrigem.length = oL
-    }
-
-
-    if (cL == 0) {
-        sClasses.length = Math.floor(Math.random() * (2 - 0)) + 1;
-
-    } else if (cL > 0) {
-
-        sClasses.length = cL
-    }
-    
-    ////console.log(origin[sOrigem[0]], origin[sOrigem[1]], classes[sClasses[0]], classes[sClasses[1]]);
-
-    //Ordena Origem e Classe por ordem numerica < p/ >
-    sOrigem.sort();
-    sClasses.sort();
-
-    //definem a criação da variavel de resultado e de index do resultado
-    let res = [];
-    let i = 0;
-
-    //conecta os valores numericos obtidos aleatoriamente com as respectivas classe/origens atribuindo o 
-    //nome das mesmas a variavel res
-    let rOrigem = [];
-    let rClasse = [];
-
-    for(let i = 0; i<sOrigem.length; i++){
-        rOrigem[i] = origin[sOrigem[i]];
-    }
-    for(let i = 0; i<sClasses.length; i++){
-        rClasse[i] = cla[sClasses[i]];
-    }
-    //console.log(rClasse)
-
-    res = rOrigem.concat(rClasse);
-    //console.log(res);
-
-    let finalRes = "";
-    for (i = 0; i < res.length; i++) {
-
-        if (i != res.length - 1) {
-            finalRes = finalRes + "[" + res[i] + "] ";
-        } else {
-
-            finalRes = finalRes + "[" + res[i] + "]";
-        }
-
-    }
-
-
-    //match
-
-    let match = [
-        //origem lateral, classe vertical
-      // 0 1 2 3 4 5 6 7 8 9 x 1 2 3
-        [0,0,1,0,0,0,0,1,0,0,1,0,0,1], //0
-        [0,1,1,0,1,0,0,1,0,1,0,1,0,0], //1
-        [1,0,0,0,0,1,0,1,0,1,1,0,0,0], //2
-        [1,1,1,0,0,1,0,0,0,0,1,1,0,1], //3
-        [1,1,1,0,1,1,0,0,0,0,1,0,0,1], //4
-        [0,0,0,0,1,0,0,1,0,1,1,1,0,1], //5
-        [0,0,0,1,1,0,0,0,0,0,0,1,0,0], //6
-        [1,1,1,1,1,0,0,0,0,0,0,0,1,0], //7
-        [0,1,0,1,0,1,1,0,0,0,0,0,0,1], //8
-        [0,0,0,0,0,0,0,1,1,1,0,1,0,1]  //9
-         
-    ];
-
-
-   for(let i = 0; i < sOrigem.length; i++){
-       for(let j = 0; j < sClasses.length; j++){
-           if(match[sOrigem[i]][sClasses[j]] !=0){
-               resMatch++;
-           }
-       }
-   }
-    //console.log(sOCon, sCCon)
-   
-    let finalArray = [finalRes, resMatch]
-    return finalArray;
-
-
-
-}
-
-
-function oneRandom(all){
+function oneRandom(all) {
     let sOrigem = Math.floor(Math.random() * (23 - 0)) + 0;
-
     let res = all[sOrigem];
-    //console.log(res)
     return res;
 }

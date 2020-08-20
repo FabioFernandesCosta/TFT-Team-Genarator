@@ -7,10 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>TFT Tam Generator</title>
     <link rel="stylesheet" type="text/css" href="apStyle.css">
-    <script src="apFunction.js"></script>
+    <script type="text/javascript" src="apFunctions.js"></script>
 
     <script>
-
 
         function start() {
             document.getElementById("resultado").innerHTML = "Generate your";
@@ -27,7 +26,7 @@
             let base = document.getElementById("option").value;
             let tipo = 1;
             //console.log(base, tipo)
-            let rand = generator(ori, cla, base, tipo, orA, clA);
+            let rand = fullRandom(ori, cla, base, tipo, orA, clA);
             let tMatch = "Error"
 
             if (rand[1] === 0) {
@@ -43,6 +42,7 @@
             document.getElementById("match").innerHTML = tMatch;
 
         }
+
     </script>
 </head>
 
@@ -68,16 +68,13 @@
             
         </select>
 
-
-
-
         <button class="button" onclick="generate()">Generate</button>
     </div>
 
     <div class="buttonPos">
 
         <select class="selector" id="oL">
-            <option value="0">Random Quantity</option>
+            <option value="-1">Random Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -85,7 +82,7 @@
         </select>
 
         <select class="selector" id="cL">
-            <option value="0">Random Quantity</option>
+            <option value="-1">Random Quantity</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
