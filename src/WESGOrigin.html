@@ -21,12 +21,9 @@
         function generate() {
             let orA = document.getElementById("oL").value;
             let clA = document.getElementById("cL").value;
-            let ori = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian"];  //0-9
-            let cla = ["BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //0-13
             let base = document.getElementById("option").value;
-            let tipo = 1;
             //console.log(base, tipo)
-            let rand = fullRandom(ori, cla, base, tipo, orA, clA);
+            let rand = fullRandom(base, 1, orA, clA);
             let tMatch = "Error"
 
             if (rand[1] === 0) {
@@ -55,16 +52,17 @@
     <div class="buttonPos">
 
         <select class="selector" id="option">
-            <option value="0">Astro</option>
-            <option value="1">Battlecast</option>
-            <option value="2">Celestial</option>
-            <option value="3">Chrono</option>
-            <option value="4">Cybernetic</option>
-            <option value="5">Dark Star</option>
-            <option value="6">Mech Pilot</option>
-            <option value="7">Rebel</option>
-            <option value="8">Space Pirate</option>
-            <option value="9">Star Guardian</option>
+            <option value="0">Cultist</option>
+            <option value="1">Divine</option>
+            <option value="2">Moonlight</option>
+            <option value="3">Dusk</option>
+            <option value="4">Ninja</option>
+            <option value="5">Enslightened</option>
+            <option value="6">Spirit</option>
+            <option value="7">Elderwood</option>
+            <option value="8">Warlord</option>
+            <option value="9">Exile</option>
+            <option value="10">Fortune</option>
             
         </select>
 

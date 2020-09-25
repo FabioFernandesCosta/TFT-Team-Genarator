@@ -21,12 +21,8 @@
         function generate() {
             let orA = document.getElementById("oL").value;
             let clA = document.getElementById("cL").value;
-            let ori = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian"];  //0-9
-            let cla = ["BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //0-13
             let base = document.getElementById("option").value;
-            let tipo = 2;
-            
-            let rand = fullRandom(ori, cla, base, tipo, orA, clA);
+            let rand = fullRandom(base, 2, orA, clA);
             let tMatch = "Error"
 
             if (rand[1] === 0) {
@@ -55,20 +51,18 @@
     <div class="buttonPos">
 
         <select class="selector" id="option">
-            <option value="0">BladeMaster</option>
-            <option value="1">Blaster</option>
-            <option value="2">Brawler</option>
-            <option value="3">Demolitionist</option>
-            <option value="4">Infiltrator</option>
-            <option value="5">Mana-Reaver</option>
-            <option value="6">Mercenary</option>
-            <option value="7">Mystic</option>
-            <option value="8">Paragon</option>
-            <option value="9">Protector</option>
-            <option value="10">Sniper</option>
-            <option value="11">Sorcerer</option>
-            <option value="12">Starship</option>
-            <option value="13">Vanguard</option>
+            <option value="0">Keeper</option>
+            <option value="1">Adept</option>
+            <option value="2">Mage</option>
+            <option value="3">Assassin</option>
+            <option value="4">Mystic</option>
+            <option value="5">Brawler</option>
+            <option value="6">Shade</option>
+            <option value="7">Dazzler</option>
+            <option value="8">Shapshooter</option>
+            <option value="9">Duelist</option>
+            <option value="10">Vanguard</option>
+            <option value="11">Hunter</option>
         </select>
 
         <button class="button" onclick="generate()">Generate</button>

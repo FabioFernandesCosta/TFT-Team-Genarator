@@ -10,8 +10,7 @@
     <script>
         function rd(){
             //25
-            let st = ["Astro", "Battlecast", "Celestial", "Chrono", "Cybernetic", "Dark Star", "Mech Pilot", "Rebel", "Space Pirate", "Star Guardian","BladeMaster", "Blaster", "Brawler", "Demolitionist", "Infiltrator", "Mana-Reaver", "Mercenary", "Mystic", "Paragon", "Protector", "Sniper", "Sorcerer", "Starship", "Vanguard"]; //9+13 = 22
-            let rand = oneRandom(st);
+            let rand = oneRandom();
             console.log(rand)
             document.getElementById("resultado").innerHTML = rand;
         }
@@ -20,7 +19,7 @@
 <body onload="rd()">
     
     <button class="returnButton" onclick="window.location.href = 'menu.html';">««</button>
-    <button class="returnButton" onclick="window.location.href = 'WESGMenu.html';">«</button>
+    <button class="returnButton" onclick="window.location.href = 'Sgerador.html';">«</button>
 
     <h1 class="SubTitle">Your Result Is:</h1>
     <div class="container">
