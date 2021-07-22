@@ -1,0 +1,122 @@
+html {
+    background-image: linear-gradient(to bottom, rgba(7,7,24,1), rgba(7,7,24,0.8), rgba(7,7,24,0),rgba(7,7,24,0.8),rgba(7,7,24,1)), url(../images/background.jpg);
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    
+}
+
+body {
+    text-align: center;
+    margin: 0;
+    position: relative;
+    
+}
+
+.tittle1 {
+    font-size: 5em;
+    }
+
+.tittle2 {
+    font-size: 3.7em;
+    margin-top: 2em;
+}
+
+.text1 {
+    color: black;
+    font-family: orbitron;
+    text-shadow: 2px 0 0 #fff, -2px 0 0 #fff, 0 2px 0 #fff, 0 -2px 0 #fff, 1px 1px #fff, -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff;
+}
+
+button {
+    height:3em;
+    width:10em;
+    font-size:1.9em;
+    background-image: linear-gradient(168deg, rgba(63, 63, 63), rgba(0, 0, 0), rgba(0, 0, 0));
+    border-radius: 20%;
+    margin-top: 0.8em;
+    
+}
+
+
+select {
+    margin-top: 2em;
+    height: 3em;
+    width: 12.5em;
+    font-size: 1.5em;
+    background-color: rgb(18, 11, 41);
+    border-radius: 0.5em;
+}
+
+.container {
+    background-color: black;
+    border:0.25em solid white;
+    margin: 5em 10em;
+    border-radius: 5.5em;
+    min-height: 12em;
+    
+    
+    
+}
+
+.container>p {
+    font-size: 2.5em;
+}
+
+#match {
+    text-shadow: 2px 0 0 green, -2px 0 0 green, 0 2px 0 green, 0 -2px 0 green, 1px 1px green, -1px -1px 0 green, 1px -1px 0 green, -1px 1px 0 green;
+}
+
+
+
+@media (orientation: portrait){
+    .tittle1{font-size: 2em;}
+    .tittle2{
+        font-size: 2.8em;
+        margin-top: 0.7em;
+    }
+    button{
+        height:4em;
+        width:8em;
+        font-size:1.3em;
+        background-color: black;
+        background-image: none;
+    }
+    select{
+        margin-top: 0.5em;
+        height: 3em;
+        width: 8em;
+        font-size: 1.3em;
+    }
+    .container{
+        margin: 1.5em 2em;
+    }
+    .container>p {
+        font-size: 1.5em;
+        text-shadow: none;
+        font-weight: bold;
+        color: white;
+        
+    }
+    html{
+        
+        background-size: 300vw 200vh;
+        background-repeat: no-repeat;
+        background-position: 58% 45%;
+    }
+    .text1{
+        color: white;
+        text-shadow: none;
+        
+    }
+    #match {
+        text-shadow: none;
+    }
+    body{
+        
+        margin: 50vh auto 0;
+        transform: translateY(-50%) ;
+    }
+    
+}
